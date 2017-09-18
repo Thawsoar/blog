@@ -9,6 +9,7 @@
 <head>
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
+  <script type="text/javascript" src="/js/src/titlechange.js"></script>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
@@ -20,7 +21,7 @@
 
   <div class="{{ container_class }} {% block page_class %}{% endblock %} ">
     <div class="headband"></div>
-<a href="https://github.com/thawsoar"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6286ade715e9bea433b4705870de482a654f78a/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png"></a>
+    <a href="https://github.com/thawsoar"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6286ade715e9bea433b4705870de482a654f78a/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png"></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"> {%- include '_partials/header.swig' %} </div>
     </header>
@@ -33,6 +34,28 @@
           </div>
           {% include '_third-party/duoshuo-hot-articles.swig' %}
           {% include '_partials/comments.swig' %}
+          <div class="comments" id="comments">
+              <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+              <style>
+                .gitment-container a {
+                  border: none;
+                }
+              </style>
+              <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+              <div id="gitment"></div>
+              <script>
+              var gitment = new Gitment({
+                id: 'location.href',
+                owner: 'Thawsoar',
+                repo: 'blogissue',
+                oauth: {
+                  client_id: '31c335455de68aa010fd',
+                  client_secret: '55af888bd89552b07196cd731240984c5de0426c',
+                }
+              });
+              gitment.render('gitment');
+              </script>
+          </div>
         </div>
         {% if theme.sidebar.display !== 'remove' %}
           {% block sidebar %}{% endblock %}
@@ -80,8 +103,5 @@
   {% include '_third-party/scroll-cookie.swig' %}
   {% include '_third-party/exturl.swig' %}
   {% if theme.canvas_nest %}
-
 </body>
 </html>
- <script type="text/javascript" src="js/src/love.js"></script>
-  <script type="text/javascript" src="js/src/titlechange.js"></script>

@@ -30,7 +30,7 @@
                alt="{{ theme.author }}" />
           <p class="site-author-name" itemprop="name">{{ theme.author }}</p>
            {% if theme.seo %}
-              <p class="site-description motion-element" itemprop="description">{{ theme.signature }}</p>
+              <p class="site-description motion-element" itemprop="description">{{ theme.description }}</p>
            {% else %}
               <p class="site-description motion-element" itemprop="description">{{ theme.description }}</p>
           {% endif %}

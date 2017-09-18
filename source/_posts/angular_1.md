@@ -1,6 +1,7 @@
 ---
 title: Angular入门
 date: 2017-6-07
+type: "index"
 tags: [npm, Angular, github]
 categories: Angular
 ---

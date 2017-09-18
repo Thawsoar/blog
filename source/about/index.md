@@ -17,19 +17,12 @@ date: 2017-06-06 16:44:45
 >- QQ：1306750238
 >- Email：thawsoar@foxmail.com
 
-#### 所学专业：
->- 乱七八糟
-
-#### 主修课程：  	
->- Photoshop、Illustrator、Indesign图形图像处理
->- Html5网页制作
->- PHP、mysql数据库处理
-
 #### 我的技能  
->- 熟练使用Photoshop切图，HTML5、CSS3、DIV+CSS 搭建静态网页
->- JavaScript完成常见网页效果
->- 熟悉jQuery、bootstrap等框架、了解Es6、nodejs
->- 了解Ajax、PHP、数据库、HTTP协议
+>- 熟练使用Photoshop切图，运用DIV+CSS来制作符合W3C规范，
+>- 兼容多种浏览器的WEB前端页面，了解css3、html5
+>- 掌握JavaScript语言核心技术DOM、Ajax、JSON等
+>- 熟悉jQuery，Bootstrap框架
+>- 知道PHP、数据库
 
 #### 自我评价  
 >- 爱学习，关注最新前端动态
@@ -37,7 +30,9 @@ date: 2017-06-06 16:44:45
 >- 抗压能力强，肯吃苦，讲求效率
 
 #### 小小简历:
->- 快要实习了哟！
-
-
->![我的简历](index/bio.png)
+>- 2017.7.12 入职无锡亚信
+	* 买醋搬水拆桌子
+	* 抬交通信号机
+	* 偶尔vue一下代码,赶个项目
+    * 统计发票
+    * 物博会划水

@@ -1,6 +1,7 @@
 ---
 title: Git
 date: 2017-6-07
+type: "index"
 tags: [npm, git, github]
 categories: Git
 ---

@@ -1,231 +1,221 @@
 ---
-title: 构建前端自动化工作流环境
+title: Git
 date: 2017-6-07
-tags: [npm, Nodejs, github]
+type: "index"
+tags: [npm, git, github]
 categories: Git
 ---
-## 学习目标
 
-- 了解什么是Node，什么是NPM；（Node.js）
-- 掌握Bower的使用；
-- 熟练使用Less/Sass；
-- 搭建一个自己的自动化工作流环境；
-  + 自动编译
-  + 自动合并
-  + 自动刷新
-  + 自动部署
-- GIT 与 GITHUB
-  + master 托管源文件
-  + gh-pages 托管部署文件
-  + 在github搭建自己的blog
+## GIT
+
+### 什么是GIT
+
+- 是一个源代码管理工具
+- 在一个项目中，凡是由开发人员编写的都算是源代码
+- 源代码有必要管理起来？
+- 让源代码可以被追溯，主要记录每次变更了什么，谁主导这次变化
+- 人为的维护比较麻烦，
+- GIT是Linux之父当年为了维护管理Linux的源代码写的一个工具
+- Git 之前 很多使用 svn vss tfs hs ......
+
+
+- https://guides.github.com/
 
 <!-- more -->
-## 为什么要有自动化的流程
+### 安装GIT
 
-- 在我们的开发过程中有大量的重复操作
-- DRY  Don't repeat yourself
-- 开发人员的精力应放在哪？创造，新的一切
+- git命令行工具
+- 基于git命令行的一个客户端软件（提供一个界面去管理源代码）
 
-- 前端开发的编译操作
+### GIT命令操作
 
+#### 查看、添加、提交、删除、找回，重置修改文件
 
-## 1.Node环境
+- git help <command> # 显示command的help
 
-### 1.1.什么是Node
+- git show # 显示某次提交的内容 git show $id
 
-- Node.js 可能类似jquery.js
-- 不是JS文件，也不是一个JS框架（）
-- 而是Server side Javascript runtime, 服务端的一个JS运行时
-- 我们可以在NODE运行JS代码
-- alert();ECMAScript  JS- ES  BOM  DOM
-- node中只能运行ECMAScript，无法使用 BOM 和 DOM
-- 目前我们的JS是运行在浏览器内核中
-- PHP是什么？是一门脚本语言也是一个运行环境
-- 为什么Node选中了JS，
-- 说到底就是一个JS运行环境
+- git co -- <file> # 抛弃工作区修改
 
-- 目前有两个分支
-  + Node.js 0.12.7 官方版本 要求尽善尽美
-  + IO.js 是社区的产物，不是官方的东西，io.js有很多新特性，迭代非常快，社区推进非常快
-  + 15年两者合并，发布node第一个正式版 4.0， 迭代速度又慢了
-  + node 5.x == io.js
-  + node 4.0 == node
+- git co . # 抛弃工作区修改
 
-### 1.2.Node环境搭建
+- git add <file> # 将工作文件修改提交到本地暂存区
 
-#### 1.2.1.Mac
+- git add . # 将所有修改过的工作文件提交暂存区
 
-- 安装包的方式
-  + [pkg](https://nodejs.org/dist/v5.5.0/node-v5.5.0.pkg)
-- NVM（Node Version Manager）
+- git rm <file> # 从版本库中删除文件
 
-  ```bash
-  $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
-  $ echo '. ~/.nvm/nvm.sh' >> .bash_profile
-  $ nvm install stable
-  $ nvm alias default stable
-  ```
+- git rm <file> --cached # 从版本库中删除文件，但不删除文件
 
-#### 1.2.2.Windows
+- git reset <file> # 从暂存区恢复到工作文件
 
-- 安装包的方式
-  + [msi_x64](https://nodejs.org/dist/v5.5.0/node-v5.5.0-x64.msi)
-  + [msi_x86](https://nodejs.org/dist/v5.5.0/node-v5.5.0-x86.msi)
-- NVM（Node Version Manager）
-- nvm(node version manager)
-- 因为NODE版本比较多，开发人员可能依赖很多版本
-- 通过NVM，可以轻松切换于不同的版本之间
+- git reset -- . # 从暂存区恢复到工作文件
 
-  ```command
-  
-  ```
-NVM_HOME=C:\Develop\nvm
+- git reset --hard # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改
 
-NVM_SYMLINK=C:\Develop\nodejs
+- git ci <file> git ci . git ci -a # 将git add, git rm和git ci等操作都合并在一起做
+　　　
+- git - ci -am "some comments"
 
-NPM_HOME=C:\Develop\nvm\npm
+- git ci --amend # 修改最后一次提交记录
 
-PATH=%NVM_HOME%;%NVM_SYMLINK%;%NPM_HOME%
+- git revert <$id> # 恢复某次提交的状态，恢复动作本身也创建次提交对象
 
-#### 1.2.3.环境变量
+- git revert HEAD # 恢复最后一次提交的状态
 
-- 环境变量就是操作系统提供的系统级别用于存储变量的地方
+#### 查看文件diff
 
-- 系统变量和用户变量
-- 系统变量指的是所用当前系统用户共享的变量
-- 自己的电脑一般只有一个用户
-- 建议将自己配置的环境变量放在用户变量中，用户变量比较干净
+- git diff <file> # 比较当前文件和暂存区文件差异 git diff
 
-- 环境变量的变量名是不区分大小写的
+- git diff <id1><id1><id2> # 比较两次提交之间的差异
 
-- 变量间运行相互引用
+- git diff <branch1>..<branch2> # 在两个分支之间比较
 
-- 特殊值：
-- PATH变量（不区分大小写）
-- PATH 相当于一个路径的引用
-- 只要添加到PATH变量中的路径，都可以在任何目录下搜索
+- git diff --staged # 比较暂存区和版本库差异
 
-- 命令行
-- 可以用来执行当前目录下的文件
-- 命令
+- git diff --cached # 比较暂存区和版本库差异
 
-cd :change directory
+- git diff --stat # 仅仅比较统计信息
 
+#### 查看提交记录
 
-- Node.js是一个轻内核（本身没有什么功能）的东东，所有的功能都要功能包提供
-- node官方提供了一些最基础的包
+- git log git log <file> # 查看该文件每次提交记录
 
-### 1.3.Node用途
+- git log -p <file> # 查看每次详细修改内容的diff
 
-#### REPL环境（控制台环境）
+- git log -p -2 # 查看最近两次详细修改内容的diff
 
-#### 1.3.1.开发Web应用程序
+- git log --stat #查看提交统计信息
 
-- 做动态网站
-- 开发提供数据的服务端API
+#### tig
 
-#### 1.3.2.前端开发工具基础
+- Mac上可以使用tig代替diff和log，brew install tig
 
-- Node.js给前端乃至整个开发行业带来一场工业革命
-- 刀跟火种
+### Git 本地分支管理
 
-### 1.4.Node开发Web应用Demo
+#### 查看、切换、创建和删除分支
 
-#### 1.4.1.复习请求与响应
+- git br -r # 查看远程分支
 
-客户端发送到服务端的东西称之为请求报文
-服务端返回给客户端的东西称之为响应报文
+- git br <new_branch> # 创建新的分支
 
+- git br -v # 查看各个分支最后提交信息
 
+- git br --merged # 查看已经被合并到当前分支的分支
 
-### 1.5.NPM
+- git br --no-merged # 查看尚未被合并到当前分支的分支
 
-#### 1.5.1.什么是NPM
+- git co <branch> # 切换到某个分支
 
-https://www.npmjs.com/
-- Node Package Manager
-- Node应用程序依赖包的管理工具
-- 安装卸载更新之类的操作
+- git co -b <new_branch> # 创建新的分支，并且切换过去
 
-#### 1.5.2.为什么使用NPM
+- git co -b <new_branch> <branch> # 基于branch创建新的new_branch
 
-- 包很多
-- 场景：我需要用一个A，A依赖B，B依赖C
-- 常见的包管理工具都有循环依赖的功能
-- 你只需记住你要什么东西
+- git co $id # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除
 
-#### 1.5.3.常见的NPM操作
+- git co $id -b <new_branch> # 把某次历史提交记录checkout出来，创建成一个分支
 
-// 安装一个包，默认安装最新稳定版本
-npm install package_name
-// --save
-// 初始化操作，给项目添加一个配置文件
-npm init 
-// --yes参数走默认配置
+- git br -d <branch> # 删除某个分支
 
-- 如果官方数据源太慢使用
-- https://npm.taobao.org/
+- git br -D <branch> # 强制删除某个分支 (未被合并的分支被删除的时候需要强制)
 
+#### 分支合并和rebase
 
-*****
+- git merge <branch> # 将branch分支合并到当前分支
 
-## 2.Bower
+- git merge origin/master --no-ff # 不要Fast-Foward合并，这样可以生成merge提交
 
-### 2.1.什么是Bower
+- git rebase master <branch> # 将master rebase到branch，相当于： git co <branch> && git rebase master && git co master && git merge <branch>
 
-- [官网](http://bower.io/)
-- web应用程序依赖项管理工具
+#### Git补丁管理(方便在多台机器上开发同步时用)
 
+- git diff > ../sync.patch # 生成补丁
 
-### 2.2.为什么使用Bower
+- git apply ../sync.patch # 打补丁
 
-- 方便便捷的方式管理包，zhuangbi
+- git apply --check ../sync.patch #测试补丁能否成功
 
-### 2.3.Bower实践
+#### Git暂存管理
 
-- npm install -g bower // -g:global
+- git stash # 暂存
 
-- 修改npm全局路径，就是在用户目录下添加.npmrc文件
+- git stash list # 列所有stash
 
-*****
+- git stash apply # 恢复暂存的内容
 
-## 3.Sass/LESS
+- git stash drop # 删除暂存区
 
+### Git远程分支管理
 
+- git pull # 抓取远程仓库所有分支更新并合并到本地
 
+- git pull --no-ff # 抓取远程仓库所有分支更新并合并到本地，不要快进合并
 
-*****
+- git fetch origin # 抓取远程仓库更新
 
-## 4.Gulp
+- git merge origin/master # 将远程主分支合并到本地当前分支
 
-### 4.1.Gulp简介
+- git co --track origin/branch # 跟踪某个远程分支创建相应的本地分支
 
-- 链接：
-  + [官网](http://gulpjs.com/)
-  + [中文网](http://www.gulpjs.com.cn/)
-- 就是用来机械化的完成重复性质的工作
-- gulp的机制就是将重复工作抽象成一个个的任务，
+- git co -b <local_branch> origin/<remote_branch> #基于远程分支创建本地分支，功能同上
 
-### 4.2.Gulp准备工作
+- git push # push所有分支
 
-- 安装Node.js
-- 安装 gulp 命令行工具
-  + `npm install -g gulp`
-- 初始化 gulp 项目
-- 创建任务 - gulpfile.js
+- git push origin master # 将本地主分支推到远程主分支
 
-### 4.3.基本使用
+- git push -u origin master # 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)
 
-### 4.4.常用插件
+- git push origin <local_branch> # 创建远程分支， origin是远程仓库名
 
-- [编译 Less：gulp-less](https://www.npmjs.com/package/gulp-less)
-- [创建本地服务器：gulp-connect](https://www.npmjs.com/package/gulp-connect)
-- [合并文件：gulp-concat](https://www.npmjs.com/package/gulp-concat)
-- [最小化 js 文件：gulp-uglify](https://www.npmjs.com/package/gulp-uglify)
-- [重命名文件：gulp-rename](https://www.npmjs.com/package/gulp-rename)
-- [最小化 css 文件：gulp-minify-css](https://www.npmjs.com/package/gulp-minify-css)
-- [压缩html文件 gulp-minify-html](https://www.npmjs.com/package/gulp-minify-html)
-- [最小化图像：gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin)
+- git push origin <local_branch>:<remote_branch> # 创建远程分支
 
+- git push origin :<remote_branch> #先删除本地分支(git br -d <branch>)，然后再push删除远程分支
 
-*****
+#### Git远程仓库管理
+
+[GitHub][github.com/thawsoar]
+
+- git remote -v # 查看远程服务器地址和仓库名称
+
+- git remote show origin # 查看远程服务器仓库状态
+
+- git remote add origin git@ github:robbin/robbin_site.git # 添加远程仓库地址
+
+- git remote set-url origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址(用于修改远程仓库地址) git remote rm <repository> # 删除远程仓库
+
+#### 创建远程仓库
+
+- git clone --bare robbin_site robbin_site.git # 用带版本的项目创建纯版本仓库
+
+- scp -r my_project.git git@ git.csdn.net:~ # 将纯仓库上传到服务器上
+
+- mkdir robbin_site.git && cd robbin_site.git && git --bare init # 在服务器创建纯仓库
+
+- git remote add origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址
+
+- git push -u origin master # 客户端首次提交
+
+- git push -u origin develop # 首次将本地develop分支提交到远程develop分支，并且track
+
+- git remote set-head origin master # 设置远程仓库的HEAD指向master分支
+
+也可以命令设置跟踪远程库和本地库
+
+- git branch --set-upstream master origin/master
+
+- git branch --set-upstream develop origin/develop
+
+### GITHUB基本使用
+
+- https://github.com/
+- GITHUB是一个GIT服务的提供商，
+- 
+- 提出社交化编程
+
+http://zoomzhao.github.io/code-guide/
+https://github.com/jobbole/awesome-javascript-cn
+https://github.com/jobbole/awesome-css-cn
+
+
+- GIT分支
+
