@@ -62,7 +62,11 @@
         {% endif %}
       </div>
     </main>
-
+    {{ live2d() }}
+    <%- live2d({
+    model: "nipsilon"
+    width: 400
+    }) %>
     <footer id="footer" class="footer">
       <div class="footer-inner">
         {% include '_partials/footer.swig' %}
