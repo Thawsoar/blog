@@ -35,13 +35,13 @@
           {% include '_third-party/duoshuo-hot-articles.swig' %}
           {% include '_partials/comments.swig' %}
           <div class="comments" id="comments">
-              <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+              <link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+              <script src="https://billts.site/js/gitment.js"></script>
               <style>
                 .gitment-container a {
                   border: none;
                 }
               </style>
-              <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
               <div id="gitment"></div>
               <script>
               var gitment = new Gitment({
@@ -62,11 +62,6 @@
         {% endif %}
       </div>
     </main>
-    {{ live2d() }}
-    <%- live2d({
-    model: "nipsilon"
-    width: 400
-    }) %>
     <footer id="footer" class="footer">
       <div class="footer-inner">
         {% include '_partials/footer.swig' %}

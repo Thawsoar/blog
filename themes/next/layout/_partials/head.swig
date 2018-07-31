@@ -134,3 +134,13 @@
 {% endif %}
 
 {% include 'head/custom-head.swig' %}
+<script>
+    (function(){
+        if('{{ page.password }}'){
+            if (prompt('[]~(~▽~)~*  干杯~233') !== '{{ page.password }}'){
+                alert('emm╮(╯_╰)╭');
+                history.back();
+            }
+        }
+    })();
+</script>

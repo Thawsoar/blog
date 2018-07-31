@@ -1,35 +1,28 @@
 ---
 title: 关于
-date: 2017-06-06 16:44:45
+date: 2018-07-27 15:43:45
 ---
 
-#### 关于我
->- 我是一只前端航线上的小菜鸟，想要飞却怎么也飞不高！
->- 但我坚信十万个小时天才理论，相信在某一天我也能够飞到高空!
+#### About me
+>- 懒惰的菜鸟
 
-#### 关于blog
+#### About the site
 >- 捡拾前辈们的羽翼，记录生活中的点滴 ！
->- 分享blog里一切的一切！
+>- 分享一切！
 
-#### 联系方式
->- 姓名: 小翔同学
->- 电话: 15852751385
->- QQ：1306750238
+#### Contact way
+>- Name:  axiang
+>- Phone: 15852751385
+>- Q Q：  1306750238
 >- Email：thawsoar@foxmail.com
 
-#### 我的技能  
->- 熟练使用Photoshop切图，运用DIV+CSS来制作符合W3C规范，
->- 兼容多种浏览器的WEB前端页面，了解css3、html5
->- 掌握JavaScript语言核心技术DOM、Ajax、JSON等
->- 熟悉jQuery，Bootstrap框架
->- 知道PHP、数据库
+#### My belief  
+>- Code wins arguments
+>- Done is better than perfect 
+>- Say focused & Keep shipping
+>- Move fast & Break things
 
-#### 自我评价  
->- 爱学习，关注最新前端动态
->- 热爱编程，基础技能扎实
->- 抗压能力强，肯吃苦，讲求效率
-
-#### 小小简历:
+#### My history:
 >- 2017.7.12 入职无锡亚信
     * 了解公司文化
     * 熟悉项目代码
@@ -41,3 +34,5 @@ date: 2017-06-06 16:44:45
     * 依葫芦画瓢仿写java接口
     * 物博会划水
     * 公司贴文化墙
+>- 2018.3.1  入职无锡中育优教科技有限公司
+     + 待续

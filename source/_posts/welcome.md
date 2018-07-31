@@ -1,9 +1,9 @@
 ---
 title: 欢迎来到我的博客
 date: 2017-06-09 16:42:58
-type: "index"
-tags: [welcome]
-categories: welcome
+type: "categories"
+tags: [life]
+categories: life
 ---
 
 ### 欢迎来到我的博客
