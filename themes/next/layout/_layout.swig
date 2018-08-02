@@ -34,28 +34,6 @@
           </div>
           {% include '_third-party/duoshuo-hot-articles.swig' %}
           {% include '_partials/comments.swig' %}
-          <div class="comments" id="comments">
-              <link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
-              <script src="https://billts.site/js/gitment.js"></script>
-              <style>
-                .gitment-container a {
-                  border: none;
-                }
-              </style>
-              <div id="gitment"></div>
-              <script>
-              var gitment = new Gitment({
-                id: 'location.href',
-                owner: 'Thawsoar',
-                repo: 'blogissue',
-                oauth: {
-                  client_id: '31c335455de68aa010fd',
-                  client_secret: '55af888bd89552b07196cd731240984c5de0426c',
-                }
-              });
-              gitment.render('gitment');
-              </script>
-          </div>
         </div>
         {% if theme.sidebar.display !== 'remove' %}
           {% block sidebar %}{% endblock %}

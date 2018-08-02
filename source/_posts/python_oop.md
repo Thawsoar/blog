@@ -8,6 +8,8 @@ categories: python
 ---
 ![python_oop](http://orrscanlu.bkt.clouddn.com/oop.png)
 
+<!-- more -->
+
 - 面向对象编程——Object Oriented Programming，简称OOP，是一种程序设计思想。
 - OOP把对象作为程序的基本单元，一个对象包含了数据和操作数据的函数。
 - 面向过程的程序设计把计算机程序视为一系列的命令集合，即一组函数的顺序执行。
@@ -17,7 +19,6 @@ categories: python
 
 - 在Python中，所有数据类型都可以视为对象，当然也可以自定义对象。自定义的对象数据类型就是面向对象中的类（Class）的概念。
 
-<!-- more -->
 
 ### python
 #### oop简要笔记

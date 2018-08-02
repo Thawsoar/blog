@@ -12,7 +12,7 @@ categories: python
 
 - [廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431845183474e20ee7e7828b47f7b7607f2dc1e90dbb000)
 
-#####案例
+##### 案例
 编写一个hello模块
 
 - 新建hello.py文件
@@ -41,11 +41,13 @@ if __name=='__main__':
 
 
 ```
+<!-- more -->
+
 >- 第1行和第2行是标准注释，第1行注释可以让这个hello.py文件直接在Unix/Linux/Mac上运行，第2行注释表示.py文件本身使用标准UTF-8编码；
 >- 第4行是一个字符串，表示模块的文档注释，任何模块代码的第一个字符串都被视为模块的文档注释
 >- 第6行使用__author__变量写入作者名字
 
-<!-- more -->
+
 
 ```python
 if __name__=='__main__':

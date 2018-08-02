@@ -36,12 +36,14 @@ call now():
 2018-7-27
 
 ```
+<!-- more -->
+
 > - log是一个decorator，接受一个函数作为参数，并返回一个函数
 > - 函数对象有一个__name__属性，可以拿到函数的名字
 > - 函数也是对象，它有__name__等属性，但你去看经过decorator装饰之后的函数，它们的__name__已经从原来的'now'变成了'wrapper',因此有些依赖函数签名的代码执行就会出错，可以使用Python内置的functools.wraps解决
 > - wrapper()函数的参数定义是(*args, **kw),因此，wrapper()函数可以接受任意参数的调用。
 > - Python的<b>@</b>语法，把decorator置于函数的定义处
-<!-- more -->
+
 
 #### 练习
 请设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间：
@@ -76,7 +78,9 @@ if f == 33 and s == 7986:
     print('test success!')
 ```
 ![test.py](http://orrscanlu.bkt.clouddn.com/test_py.png)
+
 ---
+
 #### 小结
 - 在面向对象（OOP）的设计模式中，decorator被称为装饰模式。OOP的装饰模式需要通过继承和组合来实现，而Python除了能支持OOP的decorator外，直接从语法层次支持decorator。Python的decorator可以用函数实现，也可以用类实现。
 - decorator可以增强函数的功能，定义起来虽然有点复杂，但使用起来非常灵活和方便
